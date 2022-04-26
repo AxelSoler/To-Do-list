@@ -1,13 +1,19 @@
 import _ from 'lodash';
-import './style.css';
-// function component() {
-  // const element = document.createElement('div');
 
-  // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  // element.classList.add('hello');
-
-
-  // return element;
-// }
-
-// document.body.appendChild(component());
+let tasks = [
+  {
+    description: 'wash the dishes',
+    completed: false,
+    index: '1',
+  },
+  {
+    description: 'complete to do list',
+    completed: false,
+    index: '2',
+  },
+  {
+    description: 'make dinner',
+    completed: false,
+    index: '3',
+  },
+]
