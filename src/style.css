@@ -1,0 +1,91 @@
+body {
+  background-color: rgb(235, 231, 231);
+  font-size: 18px;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 96px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 60%;
+  border: 4px solid rgb(215, 213, 213);
+}
+
+h1 {
+  font-size: 18px;
+  border-bottom: 1px solid rgb(235, 231, 231);
+  height: 48px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+}
+
+.addTask {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid rgb(235, 231, 231);
+  height: 48px;
+  padding-left: 24px;
+  font-style: italic;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  border-bottom: 1px solid rgb(235, 231, 231);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+}
+
+span {
+  padding-left: 12px;
+}
+
+button {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid rgb(235, 231, 231);
+  height: 48px;
+  font-size: 18px;
+  color: rgb(156, 154, 154);
+  background-color: rgb(235, 231, 231);
+}
+
+label {
+  display: flex;
+  width: 100%;
+}
+
+.divMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  padding-right: 12px;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.menu {
+  width: 2px;
+  height: 2px;
+  margin-bottom: 2px;
+  border: 1px solid black;
+  background: black;
+  border-radius: 50%;
+}
