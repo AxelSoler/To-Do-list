@@ -39,9 +39,23 @@ function createToDoList() {
     const check = document.createElement('input');
     check.type = 'checkbox';
     const descriptionTask = document.createElement('span');
+    descriptionTask.classList.add('description');
     descriptionTask.innerHTML = `${tasks[i].description}`;
+    const divMenu = document.createElement('div');
+    divMenu.classList.add('divMenu');
+    const span1 = document.createElement('circle');
+    span1.classList.add('menu');
+    const span2 = document.createElement('circle');
+    span2.classList.add('menu');
+    const span3 = document.createElement('circle');
+    span3.classList.add('menu');
+
+    divMenu.appendChild(span1);
+    divMenu.appendChild(span2);
+    divMenu.appendChild(span3);
     label.appendChild(check);
     label.appendChild(descriptionTask);
+    label.appendChild(divMenu)
     liTask.appendChild(label);
     ulList.appendChild(liTask);
   }

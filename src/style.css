@@ -65,3 +65,27 @@ button {
   color: rgb(156, 154, 154);
   background-color: rgb(235, 231, 231);
 }
+
+label {
+  display: flex;
+  width: 100%;
+}
+
+.divMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  padding-right: 12px;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.menu {
+  width: 2px;
+  height: 2px;
+  margin-bottom: 2px;
+  border: 1px solid black;
+  background: black;
+  border-radius: 50%;
+}
