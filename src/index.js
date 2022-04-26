@@ -21,19 +21,25 @@ let tasks = [
 ]
 
 function createToDoList() {
+  const container = document.createElement('div');
+  container.classList.add('container')
+  list.appendChild(container);
   const title = document.createElement('h1');
   title.innerHTML= `Today's To Do`;
   const ulList = document.createElement('ul');
-  list.appendChild(title);
+  container.appendChild(title);
   const addTask = document.createElement('input');
   addTask.placeholder = 'Add to your list ...';
-  list.appendChild(addTask);
+  container.appendChild(addTask);
   for (let i = 0; i < tasks.length; i++) {
     const liTask =document.createElement('li');
     liTask.innerHTML =`${tasks[i].description}`;
     ulList.appendChild(liTask);
   }
-  list.appendChild(ulList);
+  container.appendChild(ulList);
+  const clearBtn = document.createElement('button');
+  clearBtn.innerHTML =`Clear all completed`;
+  container.appendChild(clearBtn);
 }
 
 window.addEventListener('load', createToDoList());
