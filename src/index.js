@@ -1,45 +1,55 @@
-import _ from 'lodash';
-import './style.css';
-const list = document.getElementById('list');
+import _ from "lodash";
+import "./style.css";
+const list = document.getElementById("list");
 
 let tasks = [
   {
-    description: 'wash the dishes',
+    description: "wash the dishes",
     completed: false,
-    index: '1',
+    index: "1",
   },
   {
-    description: 'complete to do list',
+    description: "complete to do list",
     completed: false,
-    index: '2',
+    index: "2",
   },
   {
-    description: 'make dinner',
+    description: "make dinner",
     completed: false,
-    index: '3',
+    index: "3",
   },
-]
+];
 
 function createToDoList() {
-  const container = document.createElement('div');
-  container.classList.add('container')
+  const container = document.createElement("div");
+  container.classList.add("container");
   list.appendChild(container);
-  const title = document.createElement('h1');
-  title.innerHTML= `Today's To Do`;
-  const ulList = document.createElement('ul');
+  const title = document.createElement("h1");
+  title.innerHTML = `Today's To Do`;
+  const ulList = document.createElement("ul");
   container.appendChild(title);
-  const addTask = document.createElement('input');
-  addTask.placeholder = 'Add to your list ...';
+  const addTask = document.createElement("input");
+  addTask.classList.add("addTask");
+  addTask.placeholder = "Add to your list ...";
   container.appendChild(addTask);
+
   for (let i = 0; i < tasks.length; i++) {
-    const liTask =document.createElement('li');
-    liTask.innerHTML =`${tasks[i].description}`;
+    const liTask = document.createElement("li");
+    const label = document.createElement("label");
+    const check = document.createElement("input");
+    check.type = "checkbox";
+    const descriptionTask = document.createElement("span");
+    descriptionTask.innerHTML = `${tasks[i].description}`;
+    label.appendChild(check);
+    label.appendChild(descriptionTask);
+    liTask.appendChild(label);
     ulList.appendChild(liTask);
   }
+
   container.appendChild(ulList);
-  const clearBtn = document.createElement('button');
-  clearBtn.innerHTML =`Clear all completed`;
+  const clearBtn = document.createElement("button");
+  clearBtn.innerHTML = `Clear all completed`;
   container.appendChild(clearBtn);
 }
 
-window.addEventListener('load', createToDoList());
+window.addEventListener("load", createToDoList());
