@@ -55,7 +55,7 @@ function createToDoList() {
     divMenu.appendChild(span3);
     label.appendChild(check);
     label.appendChild(descriptionTask);
-    label.appendChild(divMenu)
+    label.appendChild(divMenu);
     liTask.appendChild(label);
     ulList.appendChild(liTask);
   }
