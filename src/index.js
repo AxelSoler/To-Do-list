@@ -1,5 +1,5 @@
 import './style.css';
-import addToDo from './addFunction.js';
+import addToDo from './modules/addFunction.js';
 
 const tasks = [];
 
