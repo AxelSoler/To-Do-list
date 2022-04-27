@@ -89,3 +89,15 @@ label {
   background: black;
   border-radius: 50%;
 }
+
+.deleteDiv {
+  display: none;
+  cursor: pointer;
+  padding-right: 12px;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.deleteDiv img{
+  width: 12px;
+}

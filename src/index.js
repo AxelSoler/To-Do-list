@@ -18,6 +18,11 @@ const display = (taskObj) => {
   span2.classList.add('menu');
   const span3 = document.createElement('circle');
   span3.classList.add('menu');
+  const divMenu2 = document.createElement('i');
+  divMenu2.classList.add('deleteDiv');
+  divMenu2.classList.add('fa-regular');
+  divMenu2.classList.add('fa-trash-can');
+  
 
   divMenu.appendChild(span1);
   divMenu.appendChild(span2);
@@ -25,6 +30,7 @@ const display = (taskObj) => {
   liTask.appendChild(check);
   liTask.appendChild(descriptionTask);
   liTask.appendChild(divMenu);
+  liTask.appendChild(divMenu2);
   ulList.appendChild(liTask);
 }
 
