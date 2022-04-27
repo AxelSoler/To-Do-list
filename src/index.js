@@ -1,5 +1,5 @@
 import './style.css';
-import addToDo from './functions.js';
+import addToDo from './addFunction.js';
 
 const tasks = [];
 
@@ -32,6 +32,11 @@ const display = (taskObj) => {
   liTask.appendChild(divMenu);
   liTask.appendChild(divMenu2);
   ulList.appendChild(liTask);
+
+  divMenu.addEventListener('click', (e) => {
+    divMenu.classList.add('none');
+    divMenu2.classList.add('active');
+  })
 }
 
 const list = document.getElementById('list');

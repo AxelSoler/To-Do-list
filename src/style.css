@@ -81,6 +81,10 @@ label {
   margin-left: auto;
 }
 
+.divMenu.none {
+  display: none;
+}
+
 .menu {
   width: 2px;
   height: 2px;
@@ -92,6 +96,10 @@ label {
 
 .deleteDiv {
   display: none;
+}
+
+.deleteDiv.active {
+  display: block;
   cursor: pointer;
   padding-right: 12px;
   justify-self: end;
