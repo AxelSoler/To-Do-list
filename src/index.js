@@ -50,8 +50,6 @@ addTask.addEventListener('keypress', (e) => {
   }
 })
 
-tasks.forEach((task) => display(task));
-
 container.appendChild(ulList);
 const clearBtn = document.createElement('button');
 clearBtn.innerHTML = 'Clear all completed';
