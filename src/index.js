@@ -1,4 +1,5 @@
 import './style.css';
+import addToDo from './functions.js';
 
 const tasks = [];
 
@@ -47,18 +48,7 @@ container.appendChild(addTask);
 
 addTask.addEventListener('keypress', (e) => {
   if (e.key == 'Enter') {
-  let task = [
-      {
-        description: '',
-        completed: false,
-        index: '4',
-      }
-    ];
-    task.description = addTask.value;
-    tasks.push(task);
-    console.log(tasks);
-    display(task);
-    addTask.value = '';
+    display(addToDo(tasks, addTask));
   }
 })
 
