@@ -5,7 +5,6 @@ const tasks = [];
 
 const display = (taskObj) => {
   const liTask = document.createElement('li');
-  const label = document.createElement('label');
   const check = document.createElement('input');
   check.type = 'checkbox';
   const descriptionTask = document.createElement('span');
@@ -23,10 +22,9 @@ const display = (taskObj) => {
   divMenu.appendChild(span1);
   divMenu.appendChild(span2);
   divMenu.appendChild(span3);
-  label.appendChild(check);
-  label.appendChild(descriptionTask);
-  label.appendChild(divMenu);
-  liTask.appendChild(label);
+  liTask.appendChild(check);
+  liTask.appendChild(descriptionTask);
+  liTask.appendChild(divMenu);
   ulList.appendChild(liTask);
 }
 
