@@ -51,8 +51,18 @@ li {
   padding-left: 24px;
 }
 
-span {
+.editing {
+  background-color: #fffeca;
+}
+
+.description {
   padding-left: 12px;
+  width: 80%;
+  height: 90%;
+  border: none;
+  font-size: 18px;
+  background: transparent;
+  outline: none;
 }
 
 button {
@@ -81,6 +91,10 @@ label {
   margin-left: auto;
 }
 
+.divMenu.none {
+  display: none;
+}
+
 .menu {
   width: 2px;
   height: 2px;
@@ -88,4 +102,20 @@ label {
   border: 1px solid black;
   background: black;
   border-radius: 50%;
+}
+
+.deleteDiv {
+  display: none;
+}
+
+.deleteDiv.active {
+  display: block;
+  cursor: pointer;
+  padding-right: 12px;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.deleteDiv img {
+  width: 12px;
 }

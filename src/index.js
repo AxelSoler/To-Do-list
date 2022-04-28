@@ -1,69 +1,82 @@
 import './style.css';
+import addToDo from './modules/addFunction.js';
+import deleteTask from './modules/deleteFunction.js';
+import editTask from './modules/editFunction.js';
 
-const tasks = [
-  {
-    description: 'wash the dishes',
-    completed: false,
-    index: '1',
-  },
-  {
-    description: 'complete to do list',
-    completed: false,
-    index: '2',
-  },
-  {
-    description: 'make dinner',
-    completed: false,
-    index: '3',
-  },
-];
+let tasks = [];
 
 const list = document.getElementById('list');
+const container = document.createElement('div');
+container.classList.add('container');
+list.appendChild(container);
+const title = document.createElement('h1');
+title.innerHTML = "Today's To Do";
+const ulList = document.createElement('ul');
+container.appendChild(title);
+const addTask = document.createElement('input');
+addTask.type = 'text';
+addTask.classList.add('addTask');
+addTask.placeholder = 'Add to your list ...';
+container.appendChild(addTask);
+container.appendChild(ulList);
+const clearBtn = document.createElement('button');
+clearBtn.innerHTML = 'Clear all completed';
+container.appendChild(clearBtn);
 
-function createToDoList() {
-  const container = document.createElement('div');
-  container.classList.add('container');
-  list.appendChild(container);
-  const title = document.createElement('h1');
-  title.innerHTML = "Today's To Do";
-  const ulList = document.createElement('ul');
-  container.appendChild(title);
-  const addTask = document.createElement('input');
-  addTask.classList.add('addTask');
-  addTask.placeholder = 'Add to your list ...';
-  container.appendChild(addTask);
+const display = (taskObj) => {
+  const liTask = document.createElement('li');
+  liTask.classList.add('index');
+  liTask.dataset.index = taskObj.index;
+  const check = document.createElement('input');
+  check.type = 'checkbox';
+  const descriptionTask = document.createElement('input');
+  descriptionTask.classList.add('description');
+  descriptionTask.value = `${taskObj.description}`;
+  const divMenu = document.createElement('div');
+  divMenu.classList.add('divMenu');
+  const span1 = document.createElement('circle');
+  span1.classList.add('menu');
+  const span2 = document.createElement('circle');
+  span2.classList.add('menu');
+  const span3 = document.createElement('circle');
+  span3.classList.add('menu');
+  const divMenu2 = document.createElement('i');
+  divMenu2.classList.add('deleteDiv');
+  divMenu2.classList.add('fa-regular');
+  divMenu2.classList.add('fa-trash-can');
 
-  for (let i = 0; i < tasks.length; i += 1) {
-    const liTask = document.createElement('li');
-    const label = document.createElement('label');
-    const check = document.createElement('input');
-    check.type = 'checkbox';
-    const descriptionTask = document.createElement('span');
-    descriptionTask.classList.add('description');
-    descriptionTask.innerHTML = `${tasks[i].description}`;
-    const divMenu = document.createElement('div');
-    divMenu.classList.add('divMenu');
-    const span1 = document.createElement('circle');
-    span1.classList.add('menu');
-    const span2 = document.createElement('circle');
-    span2.classList.add('menu');
-    const span3 = document.createElement('circle');
-    span3.classList.add('menu');
+  divMenu.appendChild(span1);
+  divMenu.appendChild(span2);
+  divMenu.appendChild(span3);
+  liTask.appendChild(check);
+  liTask.appendChild(descriptionTask);
+  liTask.appendChild(divMenu);
+  liTask.appendChild(divMenu2);
+  ulList.appendChild(liTask);
 
-    divMenu.appendChild(span1);
-    divMenu.appendChild(span2);
-    divMenu.appendChild(span3);
-    label.appendChild(check);
-    label.appendChild(descriptionTask);
-    label.appendChild(divMenu);
-    liTask.appendChild(label);
-    ulList.appendChild(liTask);
+  divMenu.addEventListener('click', () => {
+    divMenu.classList.add('none');
+    divMenu2.classList.add('active');
+  });
+
+  editTask(descriptionTask, liTask, divMenu, divMenu2, taskObj, tasks);
+
+  divMenu2.addEventListener('click', () => {
+    deleteTask(liTask, tasks);
+  });
+};
+
+window.addEventListener('load', () => {
+  tasks = JSON.parse(localStorage.getItem('taskList' || '[]'));
+  if (tasks === null) {
+    tasks = [];
+    return;
   }
+  tasks.forEach((task) => display(task));
+});
 
-  container.appendChild(ulList);
-  const clearBtn = document.createElement('button');
-  clearBtn.innerHTML = 'Clear all completed';
-  container.appendChild(clearBtn);
-}
-
-window.addEventListener('load', createToDoList());
+addTask.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    display(addToDo(tasks, addTask));
+  }
+});
