@@ -1,5 +1,6 @@
 import './style.css';
 import addToDo from './modules/addFunction.js';
+import deleteTask from './modules/deleteFunction.js';
 
 const tasks = [];
 
@@ -41,21 +42,7 @@ const display = (taskObj) => {
   })
 
   divMenu2.addEventListener('click', (e) => {
-    const number = liTask.dataset.index;
-    console.log(number)
-    tasks.splice(number - 1, 1);
-    for (let i = number - 1; i < tasks.length; i += 1){
-      tasks[i].index --;
-    }
-    liTask.remove();
-    let indElements = document.querySelectorAll('.index');
-    indElements.forEach((element) => {
-      if (element.dataset.index >= number) {
-        element.dataset.index --;
-      }
-  })
-
-    console.log(tasks);
+    deleteTask(liTask, tasks);
   })
 }
 
