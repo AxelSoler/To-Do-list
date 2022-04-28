@@ -1,6 +1,7 @@
 import './style.css';
 import addToDo from './modules/addFunction.js';
 import deleteTask from './modules/deleteFunction.js';
+import editTask from './modules/editFunction.js';
 
 const tasks = [];
 
@@ -40,22 +41,8 @@ const display = (taskObj) => {
     divMenu.classList.add('none');
     divMenu2.classList.add('active');
   })
-
-  descriptionTask.onfocus = () => {
-    liTask.classList.toggle('editing');
-    divMenu.classList.add('none');
-    divMenu2.classList.add('active');
-  }
-
-  descriptionTask.onblur = () => {
-    liTask.classList.toggle('editing');
-    taskObj.description = descriptionTask.value;
-    setTimeout(() => {
-      divMenu.classList.remove('none');
-      divMenu2.classList.remove('active');
-    }, 10);
-    console.log(tasks)
-  }
+  
+  editTask(descriptionTask, liTask, divMenu, divMenu2, taskObj);
 
   divMenu2.addEventListener('click', (e) => {
     deleteTask(liTask, tasks);
