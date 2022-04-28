@@ -1,15 +1,11 @@
 export default function addToDo(array, input) {
-  let task = [
-      {
-        description: '',
-        completed: Boolean,
-        index: '',
-      }
-  ];
-  task.description = input.value;
-  task.completed = false;
+  let task = {
+    description: input.value,
+    completed: false,
+    index: array.length +1,
+  };
   array.push(task);
-  task.index = array.length;
   input.value = '';
+  localStorage.setItem('taskList', JSON.stringify(array));
   return task;
 }

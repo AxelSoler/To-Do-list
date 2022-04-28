@@ -1,7 +1,7 @@
 export default function deleteTask(liElement, array) {
   const number = liElement.dataset.index;
-  array.splice(number - 1, 1);
-  for (let i = number - 1; i < array.length; i += 1){
+  array.splice(number-1, 1);
+  for (let i = number-1; i < array.length; i += 1){
     array[i].index --;
   }
   liElement.remove();
@@ -10,5 +10,6 @@ export default function deleteTask(liElement, array) {
     if (element.dataset.index >= number) {
       element.dataset.index --;
     }
-})
+  })
+  localStorage.setItem('taskList', JSON.stringify(array));
 }
