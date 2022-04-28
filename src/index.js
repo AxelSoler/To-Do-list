@@ -3,7 +3,7 @@ import addToDo from './modules/addFunction.js';
 import deleteTask from './modules/deleteFunction.js';
 import editTask from './modules/editFunction.js';
 
-const tasks = [];
+let tasks = [];
 
 const display = (taskObj) => {
   const liTask = document.createElement('li');
@@ -49,8 +49,16 @@ const display = (taskObj) => {
   })
 }
 
-const list = document.getElementById('list');
+window.addEventListener('load', () => {
+  tasks = JSON.parse(localStorage.getItem('taskList' || '[]'));
+  if (tasks === null) {
+    tasks = [];
+    return;
+  }
+  tasks.forEach((task) => display(task));
+});
 
+const list = document.getElementById('list');
 
 const container = document.createElement('div');
 container.classList.add('container');
