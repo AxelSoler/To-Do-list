@@ -5,6 +5,7 @@ const tasks = [];
 
 const display = (taskObj) => {
   const liTask = document.createElement('li');
+  liTask.classList.add('index');
   liTask.dataset.index = taskObj.index;
   const check = document.createElement('input');
   check.type = 'checkbox';
@@ -40,11 +41,20 @@ const display = (taskObj) => {
   })
 
   divMenu2.addEventListener('click', (e) => {
-    liTask.remove();
-    // tasks.splice(e.target.liTask.dataset.index, 1)
-    for (let i = 0; i < tasks.length; i += 1){
+    const number = liTask.dataset.index;
+    console.log(number)
+    tasks.splice(number - 1, 1);
+    for (let i = number - 1; i < tasks.length; i += 1){
       tasks[i].index --;
     }
+    liTask.remove();
+    let indElements = document.querySelectorAll('.index');
+    indElements.forEach((element) => {
+      if (element.dataset.index >= number) {
+        element.dataset.index --;
+      }
+  })
+
     console.log(tasks);
   })
 }
