@@ -51,8 +51,17 @@ li {
   padding-left: 24px;
 }
 
-span {
+.editing {
+  background-color: #fffeca;
+}
+
+.description {
   padding-left: 12px;
+  width: 80%;
+  border: none;
+  font-size: 18px;
+  background: transparent;
+  outline: none;
 }
 
 button {

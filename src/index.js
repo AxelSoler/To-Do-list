@@ -10,9 +10,9 @@ const display = (taskObj) => {
   liTask.dataset.index = taskObj.index;
   const check = document.createElement('input');
   check.type = 'checkbox';
-  const descriptionTask = document.createElement('span');
+  const descriptionTask = document.createElement('input');
   descriptionTask.classList.add('description');
-  descriptionTask.innerHTML = `${taskObj.description}`;
+  descriptionTask.value = `${taskObj.description}`;
   const divMenu = document.createElement('div');
   divMenu.classList.add('divMenu');
   const span1 = document.createElement('circle');
@@ -40,6 +40,22 @@ const display = (taskObj) => {
     divMenu.classList.add('none');
     divMenu2.classList.add('active');
   })
+
+  descriptionTask.onfocus = () => {
+    liTask.classList.toggle('editing');
+    divMenu.classList.add('none');
+    divMenu2.classList.add('active');
+  }
+
+  descriptionTask.onblur = () => {
+    liTask.classList.toggle('editing');
+    taskObj.description = descriptionTask.value;
+    setTimeout(() => {
+      divMenu.classList.remove('none');
+      divMenu2.classList.remove('active');
+    }, 10);
+    console.log(tasks)
+  }
 
   divMenu2.addEventListener('click', (e) => {
     deleteTask(liTask, tasks);
