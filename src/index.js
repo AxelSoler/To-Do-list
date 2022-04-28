@@ -42,7 +42,7 @@ const display = (taskObj) => {
     divMenu2.classList.add('active');
   })
   
-  editTask(descriptionTask, liTask, divMenu, divMenu2, taskObj);
+  editTask(descriptionTask, liTask, divMenu, divMenu2, taskObj, tasks);
 
   divMenu2.addEventListener('click', (e) => {
     deleteTask(liTask, tasks);
