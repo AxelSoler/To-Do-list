@@ -5,6 +5,24 @@ import editTask from './modules/editFunction.js';
 
 let tasks = [];
 
+const list = document.getElementById('list');
+const container = document.createElement('div');
+container.classList.add('container');
+list.appendChild(container);
+const title = document.createElement('h1');
+title.innerHTML = "Today's To Do";
+const ulList = document.createElement('ul');
+container.appendChild(title);
+const addTask = document.createElement('input');
+addTask.type = 'text';
+addTask.classList.add('addTask');
+addTask.placeholder = 'Add to your list ...';
+container.appendChild(addTask);
+container.appendChild(ulList);
+const clearBtn = document.createElement('button');
+clearBtn.innerHTML = 'Clear all completed';
+container.appendChild(clearBtn);
+
 const display = (taskObj) => {
   const liTask = document.createElement('li');
   liTask.classList.add('index');
@@ -26,7 +44,6 @@ const display = (taskObj) => {
   divMenu2.classList.add('deleteDiv');
   divMenu2.classList.add('fa-regular');
   divMenu2.classList.add('fa-trash-can');
-  
 
   divMenu.appendChild(span1);
   divMenu.appendChild(span2);
@@ -37,17 +54,17 @@ const display = (taskObj) => {
   liTask.appendChild(divMenu2);
   ulList.appendChild(liTask);
 
-  divMenu.addEventListener('click', (e) => {
+  divMenu.addEventListener('click', () => {
     divMenu.classList.add('none');
     divMenu2.classList.add('active');
-  })
-  
+  });
+
   editTask(descriptionTask, liTask, divMenu, divMenu2, taskObj, tasks);
 
-  divMenu2.addEventListener('click', (e) => {
+  divMenu2.addEventListener('click', () => {
     deleteTask(liTask, tasks);
-  })
-}
+  });
+};
 
 window.addEventListener('load', () => {
   tasks = JSON.parse(localStorage.getItem('taskList' || '[]'));
@@ -58,28 +75,8 @@ window.addEventListener('load', () => {
   tasks.forEach((task) => display(task));
 });
 
-const list = document.getElementById('list');
-
-const container = document.createElement('div');
-container.classList.add('container');
-list.appendChild(container);
-const title = document.createElement('h1');
-title.innerHTML = "Today's To Do";
-const ulList = document.createElement('ul');
-container.appendChild(title);
-const addTask = document.createElement('input');
-addTask.type = 'text';
-addTask.classList.add('addTask');
-addTask.placeholder = 'Add to your list ...';
-container.appendChild(addTask);
-
 addTask.addEventListener('keypress', (e) => {
-  if (e.key == 'Enter') {
+  if (e.key === 'Enter') {
     display(addToDo(tasks, addTask));
   }
-})
-
-container.appendChild(ulList);
-const clearBtn = document.createElement('button');
-clearBtn.innerHTML = 'Clear all completed';
-container.appendChild(clearBtn);
+});

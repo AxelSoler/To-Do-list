@@ -1,8 +1,8 @@
 export default function addToDo(array, input) {
-  let task = {
+  const task = {
     description: input.value,
     completed: false,
-    index: array.length +1,
+    index: array.length + 1,
   };
   array.push(task);
   input.value = '';
