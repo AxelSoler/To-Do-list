@@ -67,27 +67,26 @@ const display = (taskObj) => {
     deleteTask(liTask, tasks);
   });
 
-  if(taskObj.completed === true) {
-    descriptionTask.classList.add('check')
+  if (taskObj.completed === true) {
+    descriptionTask.classList.add('check');
     check.checked = true;
   }
 
   check.addEventListener('click', () => {
     if (check.checked) {
-      descriptionTask.classList.add('check')
+      descriptionTask.classList.add('check');
       taskObj.completed = true;
       localStorage.setItem('taskList', JSON.stringify(tasks));
-    }else {
-      descriptionTask.classList.remove('check')
+    } else {
+      descriptionTask.classList.remove('check');
       taskObj.completed = false;
       localStorage.setItem('taskList', JSON.stringify(tasks));
     }
-  })
-
+  });
 };
 clearBtn.addEventListener('click', () => {
-  let checkContainers = document.querySelectorAll('.index');
-  clearAllCheck(tasks, checkContainers)
+  const checkContainers = document.querySelectorAll('.index');
+  clearAllCheck(tasks, checkContainers);
 });
 
 window.addEventListener('load', () => {
