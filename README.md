@@ -27,7 +27,7 @@ To get a local copy up and running follow these simple example steps.
 * npm - to install packages locally
 
 ### Setup
-* git clone https://github.com/AxelSoler/Awesome-books-Arturo-hermida-Axel-Soler.git
+* git clone https://github.com/AxelSoler/To-Do-list.git
 
 ### Install
 * npm install

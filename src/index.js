@@ -29,6 +29,7 @@ const display = (taskObj) => {
   liTask.dataset.index = taskObj.index;
   const check = document.createElement('input');
   check.type = 'checkbox';
+  check.classList.add('checkbox');
   const descriptionTask = document.createElement('input');
   descriptionTask.classList.add('description');
   descriptionTask.value = `${taskObj.description}`;
@@ -64,6 +65,11 @@ const display = (taskObj) => {
   divMenu2.addEventListener('click', () => {
     deleteTask(liTask, tasks);
   });
+
+  check.addEventListener('click', () => {
+    descriptionTask.classList.toggle('check')
+  }) 
+
 };
 
 window.addEventListener('load', () => {
