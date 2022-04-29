@@ -2,6 +2,7 @@ import './style.css';
 import addToDo from './modules/addFunction.js';
 import deleteTask from './modules/deleteFunction.js';
 import editTask from './modules/editFunction.js';
+import clearAllCheck from './modules/clearButton.js';
 
 let tasks = [];
 
@@ -84,15 +85,10 @@ const display = (taskObj) => {
   })
 
 };
-
 clearBtn.addEventListener('click', () => {
   let checkContainers = document.querySelectorAll('.index');
-  checkContainers.forEach((container) => {
-    if(container.children[0].checked) {
-      deleteTask(container, tasks);
-    }
-  });
-})
+  clearAllCheck(tasks, checkContainers)
+});
 
 window.addEventListener('load', () => {
   tasks = JSON.parse(localStorage.getItem('taskList' || '[]'));
