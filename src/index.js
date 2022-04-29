@@ -3,7 +3,7 @@ import addToDo from './modules/addFunction.js';
 import deleteTask from './modules/deleteFunction.js';
 import editTask from './modules/editFunction.js';
 import clearAllCheck from './modules/clearButton.js';
-import checkStatus from './modules/checkStatus.js'
+import checkStatus from './modules/checkStatus.js';
 
 let tasks = [];
 
@@ -74,7 +74,6 @@ const display = (taskObj) => {
   }
 
   checkStatus(check, descriptionTask, taskObj, tasks);
-
 };
 clearBtn.addEventListener('click', () => {
   const checkContainers = document.querySelectorAll('.index');
