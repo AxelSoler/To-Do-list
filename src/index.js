@@ -66,6 +66,11 @@ const display = (taskObj) => {
     deleteTask(liTask, tasks);
   });
 
+  if(taskObj.completed === true) {
+    descriptionTask.classList.add('check')
+    check.checked = true;
+  }
+
   check.addEventListener('click', () => {
     if (check.checked) {
       descriptionTask.classList.add('check')
