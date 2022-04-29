@@ -85,6 +85,15 @@ const display = (taskObj) => {
 
 };
 
+clearBtn.addEventListener('click', () => {
+  let checkContainers = document.querySelectorAll('.index');
+  checkContainers.forEach((container) => {
+    if(container.children[0].checked) {
+      deleteTask(container, tasks);
+    }
+  });
+})
+
 window.addEventListener('load', () => {
   tasks = JSON.parse(localStorage.getItem('taskList' || '[]'));
   if (tasks === null) {
