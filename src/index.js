@@ -67,8 +67,16 @@ const display = (taskObj) => {
   });
 
   check.addEventListener('click', () => {
-    descriptionTask.classList.toggle('check')
-  }) 
+    if (check.checked) {
+      descriptionTask.classList.add('check')
+      taskObj.completed = true;
+      localStorage.setItem('taskList', JSON.stringify(tasks));
+    }else {
+      descriptionTask.classList.remove('check')
+      taskObj.completed = false;
+      localStorage.setItem('taskList', JSON.stringify(tasks));
+    }
+  })
 
 };
 
