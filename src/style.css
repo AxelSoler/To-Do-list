@@ -65,6 +65,11 @@ li {
   outline: none;
 }
 
+.description.check {
+  text-decoration: line-through;
+  color: #a0a0a0;
+}
+
 button {
   border-top: 0;
   border-left: 0;

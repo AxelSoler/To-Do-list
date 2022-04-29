@@ -7,10 +7,6 @@
 - Major languages: HTML, CSS, Javascript
 - Technologies used: GIT, Github, linters
 
-## Live Demo (link webpage when Pull Request aproved and merge it)
-
-[Live Demo Link](https://axelsoler.github.io/To-Do-list)
-
 ## Project description
 
 Webpage used to add and store your awesome books
@@ -27,7 +23,10 @@ To get a local copy up and running follow these simple example steps.
 * npm - to install packages locally
 
 ### Setup
-* git clone https://github.com/AxelSoler/Awesome-books-Arturo-hermida-Axel-Soler.git
+* $ git clone https://github.com/AxelSoler/To-Do-list.git
+* $ cd To-Do-list
+* $ npm install
+* $ npm start
 
 ### Install
 * npm install

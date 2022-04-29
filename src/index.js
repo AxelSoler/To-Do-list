@@ -2,6 +2,8 @@ import './style.css';
 import addToDo from './modules/addFunction.js';
 import deleteTask from './modules/deleteFunction.js';
 import editTask from './modules/editFunction.js';
+import clearAllCheck from './modules/clearButton.js';
+import checkStatus from './modules/checkStatus.js';
 
 let tasks = [];
 
@@ -29,6 +31,7 @@ const display = (taskObj) => {
   liTask.dataset.index = taskObj.index;
   const check = document.createElement('input');
   check.type = 'checkbox';
+  check.classList.add('checkbox');
   const descriptionTask = document.createElement('input');
   descriptionTask.classList.add('description');
   descriptionTask.value = `${taskObj.description}`;
@@ -64,7 +67,18 @@ const display = (taskObj) => {
   divMenu2.addEventListener('click', () => {
     deleteTask(liTask, tasks);
   });
+
+  if (taskObj.completed === true) {
+    descriptionTask.classList.add('check');
+    check.checked = true;
+  }
+
+  checkStatus(check, descriptionTask, taskObj, tasks);
 };
+clearBtn.addEventListener('click', () => {
+  const checkContainers = document.querySelectorAll('.index');
+  clearAllCheck(tasks, checkContainers);
+});
 
 window.addEventListener('load', () => {
   tasks = JSON.parse(localStorage.getItem('taskList' || '[]'));
