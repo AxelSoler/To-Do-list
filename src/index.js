@@ -3,6 +3,7 @@ import addToDo from './modules/addFunction.js';
 import deleteTask from './modules/deleteFunction.js';
 import editTask from './modules/editFunction.js';
 import clearAllCheck from './modules/clearButton.js';
+import checkStatus from './modules/checkStatus.js'
 
 let tasks = [];
 
@@ -72,17 +73,8 @@ const display = (taskObj) => {
     check.checked = true;
   }
 
-  check.addEventListener('click', () => {
-    if (check.checked) {
-      descriptionTask.classList.add('check');
-      taskObj.completed = true;
-      localStorage.setItem('taskList', JSON.stringify(tasks));
-    } else {
-      descriptionTask.classList.remove('check');
-      taskObj.completed = false;
-      localStorage.setItem('taskList', JSON.stringify(tasks));
-    }
-  });
+  checkStatus(check, descriptionTask, taskObj, tasks);
+
 };
 clearBtn.addEventListener('click', () => {
   const checkContainers = document.querySelectorAll('.index');
