@@ -4,7 +4,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://axelsoler.github.io/To-Do-list/)
+[To-Do-List Link](https://axelsoler.github.io/To-Do-list/)
 
 ## Built With
 
