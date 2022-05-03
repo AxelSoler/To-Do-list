@@ -10,20 +10,27 @@ let tasks = [];
 const list = document.getElementById('list');
 const container = document.createElement('div');
 container.classList.add('container');
-list.appendChild(container);
-const title = document.createElement('h1');
+const title = document.createElement('h2');
 title.innerHTML = "Today's To Do";
 const ulList = document.createElement('ul');
-container.appendChild(title);
+const addTaskDiv = document.createElement('div');
+addTaskDiv.classList.add('addTaskDiv');
 const addTask = document.createElement('input');
 addTask.type = 'text';
 addTask.classList.add('addTask');
 addTask.placeholder = 'Add to your list ...';
-container.appendChild(addTask);
-container.appendChild(ulList);
+const addBtn = document.createElement('button');
+addBtn.classList.add('addBtn');
+addBtn.innerText = '↵';
 const clearBtn = document.createElement('button');
 clearBtn.innerHTML = 'Clear all completed';
+list.appendChild(container);
+container.appendChild(title);
+container.appendChild(addTaskDiv);
+container.appendChild(ulList);
 container.appendChild(clearBtn);
+addTaskDiv.appendChild(addTask);
+addTaskDiv.appendChild(addBtn);
 
 const display = (taskObj) => {
   const liTask = document.createElement('li');
@@ -37,20 +44,20 @@ const display = (taskObj) => {
   descriptionTask.value = `${taskObj.description}`;
   const divMenu = document.createElement('div');
   divMenu.classList.add('divMenu');
-  const span1 = document.createElement('circle');
-  span1.classList.add('menu');
-  const span2 = document.createElement('circle');
-  span2.classList.add('menu');
-  const span3 = document.createElement('circle');
-  span3.classList.add('menu');
+  const circle1 = document.createElement('circle');
+  circle1.classList.add('menu');
+  const circle2 = document.createElement('circle');
+  circle2.classList.add('menu');
+  const circle3 = document.createElement('circle');
+  circle3.classList.add('menu');
   const divMenu2 = document.createElement('i');
   divMenu2.classList.add('deleteDiv');
   divMenu2.classList.add('fa-regular');
   divMenu2.classList.add('fa-trash-can');
 
-  divMenu.appendChild(span1);
-  divMenu.appendChild(span2);
-  divMenu.appendChild(span3);
+  divMenu.appendChild(circle1);
+  divMenu.appendChild(circle2);
+  divMenu.appendChild(circle3);
   liTask.appendChild(check);
   liTask.appendChild(descriptionTask);
   liTask.appendChild(divMenu);
@@ -91,6 +98,12 @@ window.addEventListener('load', () => {
 
 addTask.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
+    display(addToDo(tasks, addTask));
+  }
+});
+
+addBtn.addEventListener('click', () => {
+  if (addTask.value !== '') {
     display(addToDo(tasks, addTask));
   }
 });
