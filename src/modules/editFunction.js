@@ -1,17 +1,17 @@
-export default function editTask(desc, liElement, div1, div2, obj, array) {
-  desc.onfocus = () => {
-    liElement.classList.toggle('editing');
-    div1.classList.add('none');
-    div2.classList.add('active');
+export default function editTask(content, list, menu1, menu2, object, array) {
+  content.onfocus = () => {
+    list.classList.toggle('editing');
+    menu1.classList.add('none');
+    menu2.classList.add('active');
   };
 
-  desc.onblur = () => {
-    liElement.classList.toggle('editing');
-    obj.description = desc.value;
+  content.onblur = () => {
+    list.classList.toggle('editing');
+    object.description = content.value;
     localStorage.setItem('taskList', JSON.stringify(array));
     setTimeout(() => {
-      div1.classList.remove('none');
-      div2.classList.remove('active');
+      menu1.classList.remove('none');
+      menu2.classList.remove('active');
     }, 100);
   };
 }
