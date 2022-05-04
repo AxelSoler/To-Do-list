@@ -51,6 +51,8 @@ Twitter: [Axel Soler](https://twitter.com/AxelSoler18)
 
 ## 🤝 Contributing
 
+GitHub: [@Daniel Malo](https://github.com/Danie12345)
+
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
