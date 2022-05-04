@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651691812519" clover="3.2.0">
-  <project timestamp="1651691812519" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="6" coveredelements="6" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
-    <file name="addFunction.js" path="C:\Users\danie\Desktop\General\Extras\Programación\HTML\Microverse\Module 2\Week 8\To-Do-list\src\modules\addFunction.js">
+<coverage generated="1651696437492" clover="3.2.0">
+  <project timestamp="1651696437492" name="All files">
+    <metrics statements="15" coveredstatements="12" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2" elements="20" coveredelements="14" complexity="0" loc="15" ncloc="15" packages="1" files="2" classes="2"/>
+    <file name="addFunction.js" path="C:\Users\axel\Desktop\Microverse\Repos\To-Do-list\src\modules\addFunction.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="2" count="2" type="stmt"/>
-      <line num="7" count="2" type="stmt"/>
-      <line num="8" count="2" type="stmt"/>
-      <line num="9" count="2" type="stmt"/>
-      <line num="10" count="2" type="stmt"/>
+      <line num="2" count="3" type="stmt"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="10" count="3" type="stmt"/>
+    </file>
+    <file name="deleteFunction.js" path="C:\Users\axel\Desktop\Microverse\Repos\To-Do-list\src\modules\deleteFunction.js">
+      <metrics statements="10" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
