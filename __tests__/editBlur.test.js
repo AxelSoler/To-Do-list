@@ -2,7 +2,7 @@ import editTask from '../src/modules/editFunction.js';
 import addToDo from '../src/modules/addFunction.js';
 
 describe('Editing a task', () => {
-  let tasks = [];
+  const tasks = [];
   const input8 = { value: 'Eighth test' };
   const task8 = addToDo(tasks, input8);
   const listItem8 = document.createElement('li');
@@ -13,17 +13,17 @@ describe('Editing a task', () => {
 
   listItem8.dataset.index = task8.index;
   descriptionTask8.value = input8.value;
-  
+
   listItem8.appendChild(descriptionTask8);
   listItem8.appendChild(menu1);
   listItem8.appendChild(menu2);
   document.querySelector('body').appendChild(listItem8);
-  
+
   editTask(descriptionTask8, listItem8, menu1, menu2, task8, tasks);
 
   describe('On blur', () => {
     descriptionTask8.dispatchEvent(new Event('blur'));
-    
+
     test('Changed styles when blurred', () => {
       expect(listItem8.classList).toContain('editing');
       expect(menu1.classList).not.toContain('none');

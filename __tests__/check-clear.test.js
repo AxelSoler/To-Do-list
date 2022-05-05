@@ -1,10 +1,9 @@
 import checkStatus from '../src/modules/checkStatus.js';
 import addToDo from '../src/modules/addFunction.js';
 import clearAllCheck from '../src/modules/clearButton.js';
-import deleteTask from '../src/modules/deleteFunction.js';
 
 describe('checking task completed', () => {
-  let tasks = [];
+  const tasks = [];
   const input4 = { value: 'Fourth test' };
   const task4 = addToDo(tasks, input4);
   const taskContainer4 = document.createElement('ul');
@@ -28,14 +27,14 @@ describe('checking task completed', () => {
       test('', () => {
         expect(taskContainer4.classList).not.toContain('check');
         expect(task4.completed).toBe(false);
-      })
+      });
       test('Check localStorage', () => {
         expect(localStorage.setItem).toHaveBeenCalledWith('taskList', JSON.stringify(tasks));
       });
-    })
+    });
   });
   describe('checked', () => {
-    let tasks = [];
+    const tasks = [];
     const input5 = { value: 'Fourth test' };
     const task5 = addToDo(tasks, input5);
     const taskContainer5 = document.createElement('ul');
@@ -50,26 +49,26 @@ describe('checking task completed', () => {
     listItem5.appendChild(check5);
     listItem5.appendChild(descriptionTask5);
     taskContainer5.appendChild(listItem5);
-    
+
     checkStatus(check5, listItem5, task5, tasks);
     check5.dispatchEvent(new Event('change'));
     tasks[0].completed = true;
-  
+
     describe('', () => {
       test('checkbox is checked', () => {
         expect(listItem5.classList).toContain('check');
         expect(task5.completed).toBe(true);
-      })
-    
+      });
+
       test('Check localStorage', () => {
         expect(localStorage.setItem).toHaveBeenCalledWith('taskList', JSON.stringify(tasks));
       });
-    })
-  }); 
+    });
+  });
 });
 
 describe('checked', () => {
-  let tasks = [];
+  const tasks = [];
   const input6 = { value: 'Sixth test' };
   const task6 = addToDo(tasks, input6);
   const listItem6 = document.createElement('li');
@@ -96,15 +95,15 @@ describe('checked', () => {
 
   const taskContainer5 = document.createElement('ul');
   document.querySelector('body').appendChild(taskContainer5);
-  
+
   taskContainer5.appendChild(listItem6);
   taskContainer5.appendChild(listItem7);
- 
+
   describe('clear all completed', () => {
     checkStatus(check6, listItem6, task6, tasks);
     check6.dispatchEvent(new Event('change'));
     tasks[0].completed = true;
-  
+
     checkStatus(check7, listItem7, task7, tasks);
     check7.dispatchEvent(new Event('change'));
     tasks[1].completed = false;
@@ -112,10 +111,10 @@ describe('checked', () => {
     clearAllCheck(tasks, taskContainer5.childNodes);
     test('task removed', () => {
       expect(tasks.length).toBe(1);
-    })
-  
+    });
+
     test('Check localStorage', () => {
       expect(localStorage.setItem).toHaveBeenCalledWith('taskList', JSON.stringify(tasks));
     });
-  })
+  });
 });
